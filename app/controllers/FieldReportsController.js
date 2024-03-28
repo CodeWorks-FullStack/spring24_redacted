@@ -13,4 +13,9 @@ export class FieldReportsController {
     fieldReports.forEach(fieldReport => fieldReportsContent += fieldReport.ListTemplate)
     setHTML('fieldReportList', fieldReportsContent)
   }
+
+  createFieldReport() {
+    event.preventDefault()
+    console.log('Creating field report');
+  }
 }

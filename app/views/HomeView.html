@@ -5,6 +5,49 @@
     </div>
   </section>
 
+  <section class="row">
+    <div class="col-12">
+      <form onsubmit="app.FieldReportsController.createFieldReport()">
+
+        <div class="mb-3">
+          <label for="title">Report Title</label>
+          <input type="text" name="title" id="title" required minlength="2" maxlength="20">
+        </div>
+
+        <div class="mb-3">
+          <label for="author">Report Author</label>
+          <input type="text" name="author" id="author" required minlength="1" maxlength="50">
+        </div>
+
+        <div class="mb-3">
+          <label for="threatLevel">Threat Level</label>
+          <select name="threatLevel" id="threatLevel" required>
+            <option value="#ff0022">RED</option>
+            <option value="#008eff">BLUE</option>
+            <option value="#f5b911">YELLOW</option>
+            <option value="#008d06" selected>GREEN</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="securityLevel">Security Level</label>
+          <select name="securityLevel" id="securityLevel" required>
+            <option value="midnight">Midnight</option>
+            <option value="high noon">High Noon</option>
+            <option value="eclipse">Eclipse</option>
+            <option value="dawn" selected>Dawn</option>
+            <option value="dusk">Dusk</option>
+          </select>
+        </div>
+
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
   <section id="fieldReportList" class="row">
     <!-- STUB field report list template -->
     <!-- <div class="col-12">

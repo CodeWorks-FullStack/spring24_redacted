@@ -18,17 +18,17 @@ export class FieldReport {
       <div class="d-flex gap-4 fs-3">
         <p>${this.title}</p>
         <p>${this.securityLevel}</p>
-        <p>${this.createdDate}</p>
+        <p>${this.CreatedDate}</p>
       </div>
     </div>
     `
   }
 
-  get createdDate() {
+  get CreatedDate() {
     return this.createdAt.toLocaleDateString()
   }
 
-  get createdTime() {
+  get CreatedTime() {
     return this.createdAt.toLocaleTimeString()
   }
 }
