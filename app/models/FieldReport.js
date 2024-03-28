@@ -8,6 +8,7 @@ export class FieldReport {
     this.threatLevel = data.threatLevel
     this.body = data.body || ''
     this.author = data.author
+    // FIXME this needs to save!
     this.createdAt = new Date()
     this.lastViewed = new Date()
     this.securityLevel = data.securityLevel
@@ -29,12 +30,14 @@ export class FieldReport {
     return `
     <div class="col-8">
       <h1>${this.title}</h1>
-      <h2>Reported by Mick on 3/28/2024 10:35:01 AM</h2>
-      <h2>Last accessed 3/28/2024 11:00:00 AM</h2>
-      <h2 style="color: #ff1818;">Midnight</h2>
+      <h2>Reported by ${this.author} on ${this.CreatedDate} ${this.CreatedTime}</h2>
+      <h2>Last viewed ${this.LastViewedDateAndTime}</h2>
+      <h2 style="color: ${this.threatLevel};">${this.securityLevel}</h2>
       <div>
         <label for="reportBody">Report Body</label>
-        <textarea name="body" id="reportBody"></textarea>
+        <textarea name="body" id="reportBody">
+          ${this.body}
+        </textarea>
       </div>
     </div>
     `
@@ -46,5 +49,9 @@ export class FieldReport {
 
   get CreatedTime() {
     return this.createdAt.toLocaleTimeString()
+  }
+
+  get LastViewedDateAndTime() {
+    return this.lastViewed.toLocaleString()
   }
 }
