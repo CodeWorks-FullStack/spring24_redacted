@@ -45,4 +45,15 @@ export class FieldReportsController {
     console.log('Setting active field report with the id of', reportId);
     fieldReportsService.setActiveFieldReport(reportId)
   }
+
+  updateReport() {
+    const textAreaElem = event.target
+    console.log('blurred text area', textAreaElem);
+
+    // @ts-ignore
+    const textContentFromTextArea = textAreaElem.value // it's okay if there are red squiggles here
+    console.log('Text content', textContentFromTextArea);
+
+    fieldReportsService.updateReport(textContentFromTextArea)
+  }
 }

@@ -35,9 +35,7 @@ export class FieldReport {
       <h2 style="color: ${this.threatLevel};">${this.securityLevel}</h2>
       <div>
         <label for="reportBody">Report Body</label>
-        <textarea name="body" id="reportBody">
-          ${this.body}
-        </textarea>
+        <textarea onblur="app.FieldReportsController.updateReport()" name="body" id="reportBody">${this.body}</textarea>
       </div>
     </div>
     `
