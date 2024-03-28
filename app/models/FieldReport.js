@@ -6,7 +6,7 @@ export class FieldReport {
     this.id = generateId()
     this.title = data.title
     this.threatLevel = data.threatLevel
-    this.body = data.body
+    this.body = data.body || ''
     this.author = data.author
     this.entryDate = new Date()
     this.securityLevel = data.securityLevel
