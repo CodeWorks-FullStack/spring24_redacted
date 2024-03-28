@@ -16,9 +16,9 @@ export class FieldReport {
     return `
     <div class="col-12">
       <div class="d-flex gap-4 fs-3">
-        <p>Bigfoot</p>
-        <p>Midnight</p>
-        <p>3/28/2024</p>
+        <p>${this.title}</p>
+        <p>${this.securityLevel}</p>
+        <p>${this.entryDate}</p>
       </div>
     </div>
     `
