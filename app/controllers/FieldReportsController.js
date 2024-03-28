@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { fieldReportsService } from "../services/FieldReportsService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { setHTML } from "../utils/Writer.js";
 
@@ -22,7 +23,7 @@ export class FieldReportsController {
       const form = event.target
       const fieldReportFormData = getFormData(form)
       console.log('here is your data', fieldReportFormData);
-
+      fieldReportsService.createFieldReport(fieldReportFormData)
     } catch (error) {
       console.error('[CREATING FIELD REPORT]', error)
       window.alert(error.message)
