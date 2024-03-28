@@ -9,7 +9,8 @@ export class FieldReport {
     this.body = data.body || ''
     this.author = data.author
     // FIXME this needs to save!
-    this.createdAt = new Date()
+    // this.createdAt = new Date(data.createdAt) || new Date()
+    this.createdAt = data.createdAt == undefined ? new Date() : new Date(data.createdAt)
     this.lastViewed = new Date()
     this.securityLevel = data.securityLevel
   }
