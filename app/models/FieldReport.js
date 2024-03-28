@@ -5,9 +5,11 @@ export class FieldReport {
     this.id = generateId()
     this.title = data.title
     this.threatLevel = data.threatLevel
+    // NOTE this.body defaults to an empty string if there is not one present in the data object
     this.body = data.body || ''
     this.author = data.author
     // this.createdAt = new Date() // always pulls new date, even if a different date is stored in local storage
+    // NOTE we have to check to see if the data object coming in has a createdAt property. if it doesn't, we set this.createdAt to a new Date, or we create a new Date using the stored createdAt
     this.createdAt = data.createdAt == undefined ? new Date() : new Date(data.createdAt)
     this.lastViewed = data.lastViewed == undefined ? new Date() : new Date(data.lastViewed)
     this.securityLevel = data.securityLevel
@@ -46,14 +48,14 @@ export class FieldReport {
   }
 
   get CreatedDate() {
-    return this.createdAt.toLocaleDateString()
+    return this.createdAt.toLocaleDateString() // 3/28/2024
   }
 
   get CreatedTime() {
-    return this.createdAt.toLocaleTimeString()
+    return this.createdAt.toLocaleTimeString() // 12:28:11 PM
   }
 
   get LastViewedDateAndTime() {
-    return this.lastViewed.toLocaleString()
+    return this.lastViewed.toLocaleString() // 3/28/2024, 2:48:19 PM
   }
 }

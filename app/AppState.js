@@ -7,6 +7,7 @@ class ObservableAppState extends EventEmitter {
   /**@type {import('./models/Example.js').Example[]} */
   examples = []
 
+  // NOTE typing your properties in the appstate will give you good intellisense elsewhere in your code
   /**
    * @type {FieldReport[]}
    */

@@ -1,16 +1,16 @@
 import { AppState } from "../AppState.js";
 import { fieldReportsService } from "../services/FieldReportsService.js";
 import { getFormData } from "../utils/FormHandler.js";
-import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
 export class FieldReportsController {
   constructor() {
     console.log('Field reports controller loaded!');
+
     AppState.on('fieldReports', this.drawFieldReports)
     AppState.on('activeFieldReport', this.drawActiveFieldReport)
 
-    // this.drawFieldReports()
+    // this.drawFieldReports() // no longer needed, retrieving fieldReports from local storage will trigger our listener 
     fieldReportsService.loadFieldReports()
   }
 
