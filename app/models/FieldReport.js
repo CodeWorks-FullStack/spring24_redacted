@@ -7,8 +7,7 @@ export class FieldReport {
     this.threatLevel = data.threatLevel
     this.body = data.body || ''
     this.author = data.author
-    // FIXME this needs to save!
-    // this.createdAt = new Date(data.createdAt) || new Date()
+    // this.createdAt = new Date() // always pulls new date, even if a different date is stored in local storage
     this.createdAt = data.createdAt == undefined ? new Date() : new Date(data.createdAt)
     this.lastViewed = data.lastViewed == undefined ? new Date() : new Date(data.lastViewed)
     this.securityLevel = data.securityLevel
