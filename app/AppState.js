@@ -21,6 +21,8 @@ class ObservableAppState extends EventEmitter {
       securityLevel: 'High Noon'
     }),
   ]
+
+  activeFieldReport = null
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())

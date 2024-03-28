@@ -20,6 +20,8 @@ export class FieldReportsController {
     setHTML('fieldReportList', fieldReportsContent)
   }
 
+
+
   createFieldReport() {
     try {
       event.preventDefault()
@@ -35,5 +37,10 @@ export class FieldReportsController {
       console.error('[CREATING FIELD REPORT]', error)
       window.alert(error.message)
     }
+  }
+
+  setActiveFieldReport(reportId) {
+    console.log('Setting active field report with the id of', reportId);
+    fieldReportsService.setActiveFieldReport(reportId)
   }
 }

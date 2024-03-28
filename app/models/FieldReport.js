@@ -15,7 +15,7 @@ export class FieldReport {
 
   get ListTemplate() {
     return `
-    <div class="col-12">
+    <div onclick="app.FieldReportsController.setActiveFieldReport('${this.id}')" class="col-12 selectable" role="button">
       <div class="d-flex gap-4 fs-3">
         <p>${this.title}</p>
         <p>${this.securityLevel}</p>
