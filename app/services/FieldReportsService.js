@@ -5,6 +5,7 @@ import { loadState, saveState } from "../utils/Store.js";
 class FieldReportsService {
 
 
+
   createFieldReport(fieldReportFormData) {
     const newFieldReport = new FieldReport(fieldReportFormData)
     // console.log('Fancy new report', newFieldReport);
@@ -16,6 +17,10 @@ class FieldReportsService {
   setActiveFieldReport(reportId) {
     const foundReport = AppState.fieldReports.find(fieldReport => fieldReport.id == reportId)
     console.log('found a report', foundReport);
+
+    foundReport.lastViewed = new Date()
+    this.saveFieldReports()
+
     AppState.activeFieldReport = foundReport
   }
 
@@ -25,6 +30,26 @@ class FieldReportsService {
     report.body = newReportBody
     console.log('did the active report change?', report); // yes
     console.log('did the correct one in the array change?', AppState.fieldReports); // also yes
+
+    this.saveFieldReports()
+  }
+
+
+
+  destroyReport() {
+    const reportId = AppState.activeFieldReport.id
+    console.log('report id', reportId);
+
+    AppState.activeFieldReport = null
+
+    const indexOfReportToRemove = AppState.fieldReports.findIndex(report => report.id == reportId)
+
+    if (indexOfReportToRemove == -1) {
+      console.error("Find Index is messed up dawg");
+      return
+    }
+
+    AppState.fieldReports.splice(indexOfReportToRemove, 1)
 
     this.saveFieldReports()
   }

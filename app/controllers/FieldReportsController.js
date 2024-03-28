@@ -1,6 +1,7 @@
 import { AppState } from "../AppState.js";
 import { fieldReportsService } from "../services/FieldReportsService.js";
 import { getFormData } from "../utils/FormHandler.js";
+import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
 export class FieldReportsController {
@@ -21,7 +22,15 @@ export class FieldReportsController {
   }
 
   drawActiveFieldReport() {
-    setHTML('activeReport', AppState.activeFieldReport.ActiveDetailsTemplate)
+    const report = AppState.activeFieldReport
+
+    if (report == null) {
+      setHTML('activeReport', '')
+    }
+    else {
+      setHTML('activeReport', AppState.activeFieldReport.ActiveDetailsTemplate)
+    }
+
   }
 
   createFieldReport() {
@@ -55,5 +64,21 @@ export class FieldReportsController {
     console.log('Text content', textContentFromTextArea);
 
     fieldReportsService.updateReport(textContentFromTextArea)
+  }
+
+  destroyReport() {
+    const wantsToDestroy = window.confirm("Are you sure you want to delete this report forever?")
+
+    console.log('do they want to destroy the report', wantsToDestroy);
+
+    if (wantsToDestroy == false) {
+      return
+    }
+
+    console.log('destroying this report!!!!!');
+
+    fieldReportsService.destroyReport()
+
+
   }
 }

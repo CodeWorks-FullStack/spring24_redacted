@@ -11,7 +11,7 @@ export class FieldReport {
     // FIXME this needs to save!
     // this.createdAt = new Date(data.createdAt) || new Date()
     this.createdAt = data.createdAt == undefined ? new Date() : new Date(data.createdAt)
-    this.lastViewed = new Date()
+    this.lastViewed = data.lastViewed == undefined ? new Date() : new Date(data.lastViewed)
     this.securityLevel = data.securityLevel
   }
 
@@ -35,8 +35,13 @@ export class FieldReport {
       <h2>Last viewed ${this.LastViewedDateAndTime}</h2>
       <h2 style="color: ${this.threatLevel};">${this.securityLevel}</h2>
       <div>
-        <label for="reportBody">Report Body</label>
-        <textarea onblur="app.FieldReportsController.updateReport()" name="body" id="reportBody">${this.body}</textarea>
+      <label for="reportBody">Report Body</label>
+      <textarea onblur="app.FieldReportsController.updateReport()" name="body" id="reportBody">${this.body}</textarea>
+      </div>
+      <div class="text-end">
+        <button onclick="app.FieldReportsController.destroyReport()" type="button">
+          Delete ${this.title} Report
+        </button>
       </div>
     </div>
     `
