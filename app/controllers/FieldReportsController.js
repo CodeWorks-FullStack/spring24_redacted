@@ -7,7 +7,7 @@ export class FieldReportsController {
   constructor() {
     console.log('Field reports controller loaded!');
     AppState.on('fieldReports', this.drawFieldReports)
-
+    AppState.on('activeFieldReport', this.drawActiveFieldReport)
 
     // this.drawFieldReports()
     fieldReportsService.loadFieldReports()
@@ -20,7 +20,9 @@ export class FieldReportsController {
     setHTML('fieldReportList', fieldReportsContent)
   }
 
-
+  drawActiveFieldReport() {
+    setHTML('activeReport', AppState.activeFieldReport.ActiveDetailsTemplate)
+  }
 
   createFieldReport() {
     try {

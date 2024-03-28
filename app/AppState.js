@@ -7,21 +7,27 @@ class ObservableAppState extends EventEmitter {
   /**@type {import('./models/Example.js').Example[]} */
   examples = []
 
+  /**
+   * @type {FieldReport[]}
+   */
   fieldReports = [
-    new FieldReport({
-      title: 'Bigfoot',
-      threatLevel: '#ff0022',
-      author: 'Jeremy',
-      securityLevel: 'Midnight'
-    }),
-    new FieldReport({
-      title: 'Dolphins',
-      threatLevel: '#008eff',
-      author: 'Mick',
-      securityLevel: 'High Noon'
-    }),
+    // new FieldReport({
+    //   title: 'Bigfoot',
+    //   threatLevel: '#ff0022',
+    //   author: 'Jeremy',
+    //   securityLevel: 'Midnight'
+    // }),
+    // new FieldReport({
+    //   title: 'Dolphins',
+    //   threatLevel: '#008eff',
+    //   author: 'Mick',
+    //   securityLevel: 'High Noon'
+    // }),
   ]
 
+  /**
+   * @type {FieldReport}
+   */
   activeFieldReport = null
 }
 
