@@ -6,7 +6,11 @@ import { setHTML } from "../utils/Writer.js";
 export class FieldReportsController {
   constructor() {
     console.log('Field reports controller loaded!');
-    this.drawFieldReports()
+    AppState.on('fieldReports', this.drawFieldReports)
+
+
+    // this.drawFieldReports()
+    fieldReportsService.loadFieldReports()
   }
 
   drawFieldReports() {
@@ -24,6 +28,9 @@ export class FieldReportsController {
       const fieldReportFormData = getFormData(form)
       console.log('here is your data', fieldReportFormData);
       fieldReportsService.createFieldReport(fieldReportFormData)
+
+      // @ts-ignore
+      form.reset() // if there is a red squiggle here, it's okay
     } catch (error) {
       console.error('[CREATING FIELD REPORT]', error)
       window.alert(error.message)
