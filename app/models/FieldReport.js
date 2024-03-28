@@ -2,7 +2,6 @@ import { generateId } from "../utils/GenerateId.js"
 
 export class FieldReport {
   constructor(data) {
-    // FIXME this might break later
     this.id = generateId()
     this.title = data.title
     this.threatLevel = data.threatLevel
