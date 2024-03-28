@@ -14,10 +14,12 @@ export class FieldReport {
 
   get ListTemplate() {
     return `
-    <div class="d-flex gap-4 fs-3">
-      <p>Bigfoot</p>
-      <p>Midnight</p>
-      <p>3/28/2024</p>
+    <div class="col-12">
+      <div class="d-flex gap-4 fs-3">
+        <p>Bigfoot</p>
+        <p>Midnight</p>
+        <p>3/28/2024</p>
+      </div>
     </div>
     `
   }
