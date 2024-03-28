@@ -8,7 +8,7 @@ export class FieldReport {
     this.threatLevel = data.threatLevel
     this.body = data.body || ''
     this.author = data.author
-    this.entryDate = new Date()
+    this.createdAt = new Date()
     this.securityLevel = data.securityLevel
   }
 
@@ -18,9 +18,17 @@ export class FieldReport {
       <div class="d-flex gap-4 fs-3">
         <p>${this.title}</p>
         <p>${this.securityLevel}</p>
-        <p>${this.entryDate}</p>
+        <p>${this.createdDate}</p>
       </div>
     </div>
     `
+  }
+
+  get createdDate() {
+    return this.createdAt.toLocaleDateString()
+  }
+
+  get createdTime() {
+    return this.createdAt.toLocaleTimeString()
   }
 }
